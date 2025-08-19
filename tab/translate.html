@@ -1,0 +1,36 @@
+<div class="border-wrap">
+  <header><h2 class="title">Translate (Vi ⇄ En)</h2></header>
+  <div class="translate-toolbar">
+    <span class="pill" id="lblFrom">Tiếng Việt</span>
+    <button class="swap-btn" id="swapBtn" title="Đổi chiều (Vi ⇄ En)" aria-label="Đổi chiều">⇄</button>
+    <span class="pill" id="lblTo">English</span>
+  </div>
+  <div class="translate-grid">
+    <div class="tcell">
+      <textarea id="srcText" placeholder="Nhập tiếng Việt hoặc tiếng Anh..."></textarea>
+      <div class="tcell-actions">
+        <button class="btn small" id="clearSrc">Xoá</button>
+        <button class="btn small" id="speakSrc">🔊 Đọc</button>
+      </div>
+    </div>
+    <div class="tcell">
+      <textarea id="dstText" placeholder="Bản dịch sẽ hiển thị ở đây..." readonly></textarea>
+      <div class="tcell-actions">
+        <button class="btn small" id="copyDst">Copy</button>
+        <button class="btn small" id="speakDst">🔊 Đọc</button>
+      </div>
+    </div>
+  </div>
+  <div class="translate-actions">
+    <button class="btn" id="translateBtn">Dịch</button>
+    <span id="tStatus" class="tstatus" aria-live="polite"></span>
+  </div>
+  <div class="history-wrap">
+    <div class="history-head">
+      <h3 style="margin:0">Lịch sử dịch</h3>
+      <button class="btn small" id="clearHistory">Xoá lịch sử</button>
+    </div>
+    <div id="historyList" class="history-list"></div>
+  </div>
+  <footer> Nguồn dịch: <strong>MyMemory</strong> (client-side). </footer>
+</div>

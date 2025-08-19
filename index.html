@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lịch học IELTS hàng ngày của TTN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="squiggle">
+        <feTurbulence type="fractalNoise" baseFrequency="0.010" numOctaves="3" seed="2" result="noise">
+          <animate attributeName="baseFrequency" dur="4s" values="0.010;0.018;0.012;0.010" repeatCount="indefinite"/>
+          <animate attributeName="seed" dur="2.4s" values="2;5;9;2" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2">
+          <animate attributeName="scale" dur="4s" values="1;3;2;1" repeatCount="indefinite"/>
+        </feDisplacementMap>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="sky" aria-hidden="true">
+    <div class="sun" id="sun"></div>
+    <div class="moon" id="moon"></div>
+    <div class="cloud cloud--1"></div>
+    <div class="cloud cloud--2"></div>
+    <div class="cloud cloud--3"></div>
+  </div>
+  <div class="stars" id="stars" aria-hidden="true">
+    <div class="star" style="top:12%;left:18%;animation-delay:.0s"></div>
+    <div class="star" style="top:22%;left:58%;animation-delay:.6s"></div>
+    <div class="star" style="top:34%;left:78%;animation-delay:1.1s"></div>
+    <div class="star" style="top:46%;left:36%;animation-delay:1.7s"></div>
+    <div class="star" style="top:58%;left:66%;animation-delay:2.2s"></div>
+    <div class="star" style="top:26%;left:86%;animation-delay:.9s"></div>
+    <div class="star" style="top:72%;left:22%;animation-delay:.4s"></div>
+    <div class="star" style="top:68%;left:74%;animation-delay:1.9s"></div>
+  </div>
+
+  <div class="container">
+    <nav class="tabs" role="tablist" aria-label="IELTS Tabs">
+      <button class="tab is-active" data-tab="tab\schedule.html" role="tab" aria-selected="true">📅 Lịch</button>
+      <button class="tab" data-tab="tab\translate.html" role="tab" aria-selected="false">🌐 Translate</button>
+      <button class="tab" data-tab="tab\idioms.html" role="tab" aria-selected="false">💡 Idioms</button>
+      <button class="tab" data-tab="tab\phrasal.html" role="tab" aria-selected="false">🔗 Phrasal Verbs</button>
+      <button class="tab" data-tab="tab\verbs.html" role="tab" aria-selected="false">🚀 Advanced Verb</button>
+      <span class="tab-indicator" aria-hidden="true"></span>
+    </nav>
+    <div id="content" class="content-area" aria-live="polite"></div>
+  </div>
+
+  <button class="fab" id="fabAnim" aria-pressed="false" title="Bật/Tắt animation">⏸️</button>
+  <button class="fab fab-secondary" id="fabSquiggle" aria-pressed="true" title="Bật/Tắt Squiggle">✨</button>
+  <div class="time-sync" id="timeSync" title="Trạng thái đồng bộ thời gian">Đang đồng bộ…</div>
+</body>
+</html>
