@@ -98,3 +98,22 @@ function attachBurstToButtons(scope){
   });
 }
 attachBurstToButtons(document);
+document.addEventListener("DOMContentLoaded", function() {
+  const activeTab = document.querySelector(".tab.is-active");
+  if (activeTab) {
+      loadTabContent(activeTab.getAttribute("data-tab"));
+  }
+});
+
+function loadTabContent(tabUrl) {
+  fetch(tabUrl)
+      .then(res => res.text())
+      .then(html => {
+          document.getElementById("content").innerHTML = html;
+      })
+      .catch(err => {
+          console.error("Error loading tab content:", err);
+      });
+}
+
+// ...existing code for tab switching events...
