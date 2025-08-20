@@ -32,7 +32,7 @@
     .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
     .btn{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0820;font-weight:800;border:none;border-radius:12px;padding:10px 14px;cursor:pointer;box-shadow:0 12px 22px rgba(139,92,246,.28)}
     .btn.secondary{background:#1c1c2b;color:#c7c7dd;border:1px solid var(--border);box-shadow:none}
-    footer{margin-top:22px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px}
+    footer{margin-top:22px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:14px}
     .clock{font-variant-numeric:tabular-nums}
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .ph{height:110px;border-radius:12px;background:#1c1c2b;border:1px solid var(--border);display:grid;place-items:center;color:#747b94}
@@ -68,7 +68,6 @@
           <li>Rèn luyện thói quen ôn luyện các kỹ năng liên quan tới IELTS 2 tiếng mỗi ngày. </li>
         </ul>
         <p class="quote2">Ngoài ra tôi còn cung cấp các tài khoản premium với giá hạt dẻ như : Netflix , Capcut , Duolingo , ...</p>
-
       </article>
 
       <aside class="card">
@@ -95,50 +94,21 @@
         </ul>
 
         <h2 style="margin-top:14px">Trạng thái</h2>
-<div class="badge" style="
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:120px;   /* chiều rộng tối thiểu để khung cố định */
-  text-align:center;
-  padding:8px 12px;
-  border-radius:12px;
-  background:#1f1f2b;
-  border:1px solid #333;
-  font-weight:600;
-  font-family:monospace; /* font đồng hồ nhìn gọn hơn */
-">
-  <span id="clock" class="clock">--:--:--</span> • VN Time
-</div>
-
-<script>
-  let currentTime = null;
-
-  async function initTime() {
-    try {
-      const response = await fetch('https://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh');
-      const data = await response.json();
-      currentTime = new Date(data.datetime);
-      tick();
-    } catch (error) {
-      console.error('Error fetching time:', error);
-    }
-  }
-
-  function tick() {
-    if (!currentTime) return;
-    currentTime.setSeconds(currentTime.getSeconds() + 1);
-    const h = String(currentTime.getHours()).padStart(2, '0');
-    const m = String(currentTime.getMinutes()).padStart(2, '0');
-    const s = String(currentTime.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').textContent = `${h}:${m}:${s}`;
-  }
-
-  initTime();
-  setInterval(tick, 1000);
-</script>
-
-        </script>
+        <div class="badge" style="
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-width:140px;
+          text-align:center;
+          padding:8px 12px;
+          border-radius:12px;
+          background:#1f1f2b;
+          border:1px solid #333;
+          font-weight:600;
+          font-family:monospace;
+        ">
+          <span id="clock" class="clock">--:--:--</span> • Local
+        </div>
       </aside>
     </section>
 
@@ -148,30 +118,8 @@
   </div>
 
   <script>
-    // Đồng hồ & năm
-    const clockEl = document.getElementById('clock');
-    function tick(){
-      const t = new Date();
-      const h = String(t.getHours()).padStart(2,'0');
-      const m = String(t.getMinutes()).padStart(2,'0');
-      const s = String(t.getSeconds()).padStart(2,'0');
-      clockEl.textContent = `${h}:${m}:${s}`;
-    }
-    setInterval(tick, 1000); tick();
+    // chỉ cập nhật năm — đồng hồ sẽ do script.js của trang chính đồng bộ qua BroadcastChannel
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Nút tải về file HTML hiện tại
-    document.getElementById('dl').addEventListener('click', () => {
-      const blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'the-nghia-profile.html';
-      a.click();
-      URL.revokeObjectURL(url);
-    });
   </script>
 </body>
-
 </html>
-
